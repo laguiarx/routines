@@ -1,1 +1,40 @@
-{ "security": [], "ai": [] }
+{
+  "security": [
+    {
+      "id": "GHSA-mghf-wjfp-p5xm",
+      "package": "wasmtime",
+      "cvss": 9.9,
+      "status": "patched",
+      "first_seen": "2026-10-30",
+      "last_reported": "2026-10-30"
+    },
+    {
+      "id": "GHSA-m665-v7pm-7grj",
+      "package": "zip (crates.io)",
+      "cvss": null,
+      "status": "patched",
+      "first_seen": "2026-10-30",
+      "last_reported": "2026-10-30"
+    },
+    {
+      "id": "GHSA-965c-763c-88jm",
+      "package": "better-auth",
+      "cvss": 9.1,
+      "status": "patched",
+      "first_seen": "2026-10-30",
+      "last_reported": "2026-10-30"
+    }
+  ],
+  "ai": [
+    {
+      "id": "mistral/le-chonk",
+      "type": "modelo novo",
+      "first_seen": "2026-10-30"
+    },
+    {
+      "id": "openai/gpt-6.1-terra",
+      "type": "modelo novo",
+      "first_seen": "2026-10-30"
+    }
+  ]
+}
