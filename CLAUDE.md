@@ -13,7 +13,7 @@ Cada routine é uma skill em `.claude/skills/<nome>/SKILL.md`, com estado em
    - `git add state/<nome>.json outputs/<nome>/`
    - `git commit -m "<nome>: AAAA-MM-DD"`
    - `git pull --rebase origin main`
-   - `git push origin main`
+   - `git push origin HEAD:main` (funciona mesmo com HEAD destacado; não use `git push origin main`)
    - Se o push falhar por conflito, repita pull --rebase + push até 3 vezes.
 4. Datas sempre no fuso America/Sao_Paulo, formato AAAA-MM-DD.
 5. Se algo impedir a execução (rede bloqueada, fonte fora do ar), registre o problema
