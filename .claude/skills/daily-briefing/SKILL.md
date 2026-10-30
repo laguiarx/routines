@@ -44,17 +44,21 @@ ESCOPO: Node.js, Bun, Deno, npm/pnpm/yarn, React, React Server Components, Next.
 EXTRA (Rust): crates populares (tokio, axum, hyper, serde, reqwest, actix, rustls) e o próprio toolchain.
 FONTES PRIORITÁRIAS: GitHub Advisory Database (GHSA), NVD, blog de security releases do Node.js, advisories de Vercel/Next.js, releases do Bun, RustSec Advisory Database, Socket.dev, Snyk, OSV.dev.
 CONSULTA OBRIGATÓRIA (abra todas antes de concluir; se uma falhar, anote no topo do output e siga):
-- GitHub Advisory Database (JSON, via `curl -s`; troque DESDE pela data da etapa 0; `%3E%3D` é `>=` codificado):
-  - npm crítico: `https://api.github.com/advisories?ecosystem=npm&severity=critical&published=%3E%3DDESDE&per_page=100`
-  - npm malware: `https://api.github.com/advisories?ecosystem=npm&type=malware&published=%3E%3DDESDE&per_page=100` (filtre pelos pacotes populares)
-  - Rust crítico: `https://api.github.com/advisories?ecosystem=rust&severity=critical&published=%3E%3DDESDE&per_page=100`
-  - Repita as três com `updated=%3E%3DDESDE` no lugar de `published` para achar reclassificações e patches novos (🔄 ATUALIZAÇÃO).
+- Advisories (GHSA, RustSec e pacotes maliciosos via OSV): rode
+  `python3 .claude/skills/daily-briefing/osv_recent.py DESDE` (leva ~1 min). A saída JSON tem:
+  - `critical`: advisories npm/crates com severidade CRITICAL. `published` ≥ DESDE = novo; só `modified` recente = candidato a 🔄 ATUALIZAÇÃO.
+  - `unrated_with_cvss`: sem classificação, só com vetor CVSS. Calcule o score e inclua só se ≥ 9.0.
+  - `malicious_popular`: pacotes npm maliciosos com ≥ 50 mil downloads/semana.
+  - `errors`: falhas de rede; anote no topo do output.
+  Avalie se cada pacote é relevante para o escopo acima (popular ou do ecossistema listado) antes de reportar.
+  A API `api.github.com/advisories` NÃO funciona nas sessões na nuvem (o proxy do GitHub só atende os repositórios da sessão); não tente.
 - https://nodejs.org/en/blog/vulnerability
 - https://github.com/vercel/next.js/security/advisories
 - https://github.com/oven-sh/bun/releases
 - https://rustsec.org/advisories/
 - https://socket.dev/blog
-Para cada candidato, confirme CVSS e versões no GHSA ou em `https://nvd.nist.gov/vuln/detail/<CVE>`. Use WebSearch só para completar.
+Para cada candidato, confirme CVSS e versões no registro do OSV (`url` na saída) ou em `https://nvd.nist.gov/vuln/detail/<CVE>`. Use WebSearch só para completar.
+PLANO B (vale para as duas seções): se uma fonte obrigatória estiver bloqueada, busque com WebSearch `site:<domínio da fonte>` na janela, marque o item como "fonte secundária" e cite o bloqueio no topo do output.
 JANELA: últimas 24h (estenda para 72h se não houver nada e sinalize isso).
 CRITÉRIO DE CORTE: CVSS ≥ 9.0 (v3.1 ou v4). Inclua também, mesmo sem CVSS, pacotes maliciosos publicados, contas de maintainers comprometidas e worms de supply chain que afetem pacotes populares.
 POR ITEM: pacote/produto → CVE/GHSA → CVSS → tipo de falha (RCE, auth bypass etc.) → versões afetadas → versão corrigida → se há exploração ativa ou PoC público → ação recomendada (comando de atualização ou mitigação) → link.
