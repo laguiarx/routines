@@ -21,13 +21,13 @@ Leia `state/daily-briefing.json`. Ele tem duas listas, `security` e `ai`, com os
 
 TEMA: Lançamentos e anúncios de modelos de IA.
 FONTES PRIORITÁRIAS: blogs e páginas de anúncio oficiais (Anthropic, OpenAI, xAI, Google DeepMind, Meta AI, Mistral, DeepSeek, Alibaba/Qwen, Moonshot/Kimi, Zhipu/GLM), model cards, changelogs de API, Hugging Face. Imprensa de tecnologia só como apoio.
-CONSULTA OBRIGATÓRIA (abra todas antes de concluir; se uma falhar, anote no topo do output e siga):
+CONSULTA OBRIGATÓRIA (abra todas antes de concluir, com `curl -sL` para seguir redirecionamentos; se uma falhar, aplique o PLANO B):
 - https://www.anthropic.com/news
-- https://openai.com/news/ e https://platform.openai.com/docs/changelog
-- https://blog.google/technology/google-deepmind/ e https://ai.google.dev/gemini-api/docs/changelog
-- https://x.ai/news
+- https://openai.com/news/rss.xml (RSS; a página openai.com/news bloqueia robôs) e https://developers.openai.com/api/docs/changelog
+- https://blog.google/innovation-and-ai/models-and-research/google-deepmind/ e https://ai.google.dev/gemini-api/docs/changelog
+- https://docs.x.ai/developers/release-notes (x.ai/news bloqueia robôs)
 - https://ai.meta.com/blog/
-- https://mistral.ai/news
+- https://mistral.ai/news/
 - https://api-docs.deepseek.com/
 - Modelos recentes no Hugging Face (JSON, via `curl -s`), para cada org em Qwen, deepseek-ai, moonshotai, zai-org, mistralai, meta-llama, google, openai:
   `https://huggingface.co/api/models?author=<org>&sort=createdAt&direction=-1&limit=10`
@@ -43,7 +43,7 @@ TEMA: Vulnerabilidades críticas e ataques de supply chain.
 ESCOPO: Node.js, Bun, Deno, npm/pnpm/yarn, React, React Server Components, Next.js, Vercel (plataforma e pacotes), TanStack (Query, Router, Start), Vite, TypeScript e tooling, frameworks e bibliotecas populares do ecossistema (Express, Fastify, Hono, Prisma, Drizzle, tRPC, Zod, Remix, Astro etc.) e pacotes npm com alto volume de download.
 EXTRA (Rust): crates populares (tokio, axum, hyper, serde, reqwest, actix, rustls) e o próprio toolchain.
 FONTES PRIORITÁRIAS: GitHub Advisory Database (GHSA), NVD, blog de security releases do Node.js, advisories de Vercel/Next.js, releases do Bun, RustSec Advisory Database, Socket.dev, Snyk, OSV.dev.
-CONSULTA OBRIGATÓRIA (abra todas antes de concluir; se uma falhar, anote no topo do output e siga):
+CONSULTA OBRIGATÓRIA (abra todas antes de concluir, com `curl -sL` para seguir redirecionamentos; se uma falhar, aplique o PLANO B):
 - Advisories (GHSA, RustSec e pacotes maliciosos via OSV): rode
   `python3 .claude/skills/daily-briefing/osv_recent.py DESDE` (leva ~1 min). A saída JSON tem:
   - `critical`: advisories npm/crates com severidade CRITICAL. `published` ≥ DESDE = novo; só `modified` recente = candidato a 🔄 ATUALIZAÇÃO.
@@ -53,12 +53,12 @@ CONSULTA OBRIGATÓRIA (abra todas antes de concluir; se uma falhar, anote no top
   Avalie se cada pacote é relevante para o escopo acima (popular ou do ecossistema listado) antes de reportar.
   A API `api.github.com/advisories` NÃO funciona nas sessões na nuvem (o proxy do GitHub só atende os repositórios da sessão); não tente.
 - https://nodejs.org/en/blog/vulnerability
-- https://github.com/vercel/next.js/security/advisories
-- https://github.com/oven-sh/bun/releases
+- https://bun.com/blog (releases do Bun; as páginas do GitHub de outros repos dão 403 na nuvem)
 - https://rustsec.org/advisories/
-- https://socket.dev/blog
+- Socket.dev: o site bloqueia robôs; use direto o PLANO B (`site:socket.dev/blog`).
+Advisories do Next.js, React e demais pacotes npm já vêm do script do OSV; não abra páginas de advisories no github.com.
 Para cada candidato, confirme CVSS e versões no registro do OSV (`url` na saída) ou em `https://nvd.nist.gov/vuln/detail/<CVE>`. Use WebSearch só para completar.
-PLANO B (vale para as duas seções): se uma fonte obrigatória estiver bloqueada, busque com WebSearch `site:<domínio da fonte>` na janela, marque o item como "fonte secundária" e cite o bloqueio no topo do output.
+PLANO B (OBRIGATÓRIO, vale para as duas seções): para TODA fonte que der 403, timeout ou vier sem datas legíveis, faça ao menos uma busca WebSearch `site:<domínio da fonte>` restrita à janela antes de concluir. Marque o que vier dali como "fonte secundária" e liste no topo do output quais fontes caíram no plano B. Não encerre a seção com "fonte inacessível" sem ter feito essa busca.
 JANELA: últimas 24h (estenda para 72h se não houver nada e sinalize isso).
 CRITÉRIO DE CORTE: CVSS ≥ 9.0 (v3.1 ou v4). Inclua também, mesmo sem CVSS, pacotes maliciosos publicados, contas de maintainers comprometidas e worms de supply chain que afetem pacotes populares.
 POR ITEM: pacote/produto → CVE/GHSA → CVSS → tipo de falha (RCE, auth bypass etc.) → versões afetadas → versão corrigida → se há exploração ativa ou PoC público → ação recomendada (comando de atualização ou mitigação) → link.
