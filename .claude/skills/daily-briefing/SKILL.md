@@ -7,6 +7,12 @@ description: Briefing diário com lançamentos de modelos de IA e vulnerabilidad
 
 Responda em português. Estado: `state/daily-briefing.json`. Saída: `outputs/daily-briefing/AAAA-MM-DD.md`.
 
+## 0. Data de hoje
+
+Rode `TZ=America/Sao_Paulo date +%F` e use o resultado como HOJE em tudo: nome do arquivo de saída,
+mensagem de commit, `first_seen` e `last_reported`. Rode `TZ=America/Sao_Paulo date -d '3 days ago' +%F`
+para obter DESDE (início da janela estendida). Nunca use a data UTC do sistema nem a do aviso de disparo.
+
 ## 1. Memória (antes de pesquisar)
 
 Leia `state/daily-briefing.json`. Ele tem duas listas, `security` e `ai`, com os itens já reportados.
