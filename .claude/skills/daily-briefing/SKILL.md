@@ -21,6 +21,17 @@ Leia `state/daily-briefing.json`. Ele tem duas listas, `security` e `ai`, com os
 
 TEMA: Lançamentos e anúncios de modelos de IA.
 FONTES PRIORITÁRIAS: blogs e páginas de anúncio oficiais (Anthropic, OpenAI, xAI, Google DeepMind, Meta AI, Mistral, DeepSeek, Alibaba/Qwen, Moonshot/Kimi, Zhipu/GLM), model cards, changelogs de API, Hugging Face. Imprensa de tecnologia só como apoio.
+CONSULTA OBRIGATÓRIA (abra todas antes de concluir; se uma falhar, anote no topo do output e siga):
+- https://www.anthropic.com/news
+- https://openai.com/news/ e https://platform.openai.com/docs/changelog
+- https://blog.google/technology/google-deepmind/ e https://ai.google.dev/gemini-api/docs/changelog
+- https://x.ai/news
+- https://ai.meta.com/blog/
+- https://mistral.ai/news
+- https://api-docs.deepseek.com/
+- Modelos recentes no Hugging Face (JSON, via `curl -s`), para cada org em Qwen, deepseek-ai, moonshotai, zai-org, mistralai, meta-llama, google, openai:
+  `https://huggingface.co/api/models?author=<org>&sort=createdAt&direction=-1&limit=10`
+Use WebSearch só para completar (ex.: Qwen e Kimi fora do Hugging Face), nunca como fonte principal.
 JANELA: últimas 24h (estenda para 72h se não houver lançamento relevante e sinalize isso).
 CRITÉRIOS (ordem de prioridade): modelo novo > nova versão > recurso novo de API/SDK > preço/disponibilidade. Dê destaque ao que impacta quem desenvolve agentes, RAG e ferramentas de código.
 POR ITEM: o que foi lançado → o que tem de novo na prática → comparação com concorrentes (só com dados oficiais) → disponibilidade (API, preço, região) → link da fonte oficial.
@@ -32,6 +43,18 @@ TEMA: Vulnerabilidades críticas e ataques de supply chain.
 ESCOPO: Node.js, Bun, Deno, npm/pnpm/yarn, React, React Server Components, Next.js, Vercel (plataforma e pacotes), TanStack (Query, Router, Start), Vite, TypeScript e tooling, frameworks e bibliotecas populares do ecossistema (Express, Fastify, Hono, Prisma, Drizzle, tRPC, Zod, Remix, Astro etc.) e pacotes npm com alto volume de download.
 EXTRA (Rust): crates populares (tokio, axum, hyper, serde, reqwest, actix, rustls) e o próprio toolchain.
 FONTES PRIORITÁRIAS: GitHub Advisory Database (GHSA), NVD, blog de security releases do Node.js, advisories de Vercel/Next.js, releases do Bun, RustSec Advisory Database, Socket.dev, Snyk, OSV.dev.
+CONSULTA OBRIGATÓRIA (abra todas antes de concluir; se uma falhar, anote no topo do output e siga):
+- GitHub Advisory Database (JSON, via `curl -s`; troque DESDE pela data da etapa 0; `%3E%3D` é `>=` codificado):
+  - npm crítico: `https://api.github.com/advisories?ecosystem=npm&severity=critical&published=%3E%3DDESDE&per_page=100`
+  - npm malware: `https://api.github.com/advisories?ecosystem=npm&type=malware&published=%3E%3DDESDE&per_page=100` (filtre pelos pacotes populares)
+  - Rust crítico: `https://api.github.com/advisories?ecosystem=rust&severity=critical&published=%3E%3DDESDE&per_page=100`
+  - Repita as três com `updated=%3E%3DDESDE` no lugar de `published` para achar reclassificações e patches novos (🔄 ATUALIZAÇÃO).
+- https://nodejs.org/en/blog/vulnerability
+- https://github.com/vercel/next.js/security/advisories
+- https://github.com/oven-sh/bun/releases
+- https://rustsec.org/advisories/
+- https://socket.dev/blog
+Para cada candidato, confirme CVSS e versões no GHSA ou em `https://nvd.nist.gov/vuln/detail/<CVE>`. Use WebSearch só para completar.
 JANELA: últimas 24h (estenda para 72h se não houver nada e sinalize isso).
 CRITÉRIO DE CORTE: CVSS ≥ 9.0 (v3.1 ou v4). Inclua também, mesmo sem CVSS, pacotes maliciosos publicados, contas de maintainers comprometidas e worms de supply chain que afetem pacotes populares.
 POR ITEM: pacote/produto → CVE/GHSA → CVSS → tipo de falha (RCE, auth bypass etc.) → versões afetadas → versão corrigida → se há exploração ativa ou PoC público → ação recomendada (comando de atualização ou mitigação) → link.
