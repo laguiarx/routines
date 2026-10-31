@@ -23,6 +23,14 @@
       "status": "patched",
       "first_seen": "2026-10-30",
       "last_reported": "2026-10-30"
+    },
+    {
+      "id": "GHSA-4xm8-rg9h-jhq2",
+      "package": "signalk-server",
+      "cvss": 9.8,
+      "status": "patched",
+      "first_seen": "2026-10-31",
+      "last_reported": "2026-10-31"
     }
   ],
   "ai": [
@@ -35,6 +43,16 @@
       "id": "openai/gpt-6.1-terra",
       "type": "modelo novo",
       "first_seen": "2026-10-30"
+    },
+    {
+      "id": "google/gemini-computer-use-ga",
+      "type": "recurso novo de API",
+      "first_seen": "2026-10-31"
+    },
+    {
+      "id": "openai/gpt-6-rosalind",
+      "type": "modelo novo",
+      "first_seen": "2026-10-31"
     }
   ]
 }
