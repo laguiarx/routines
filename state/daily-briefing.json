@@ -76,6 +76,16 @@
       "id": "google/gemini-api-office-files",
       "type": "recurso novo de API",
       "first_seen": "2026-11-05"
+    },
+    {
+      "id": "openai/gpt-6-cyber",
+      "type": "modelo novo",
+      "first_seen": "2026-11-06"
+    },
+    {
+      "id": "google/gemini-omni-1.2-flash",
+      "type": "modelo novo",
+      "first_seen": "2026-11-06"
     }
   ]
 }
