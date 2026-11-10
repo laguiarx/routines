@@ -86,6 +86,11 @@
       "id": "google/gemini-omni-1.2-flash",
       "type": "modelo novo",
       "first_seen": "2026-11-06"
+    },
+    {
+      "id": "anthropic/claude-fable-5.2-mythos-5.2",
+      "type": "modelo novo",
+      "first_seen": "2026-11-10"
     }
   ]
 }
