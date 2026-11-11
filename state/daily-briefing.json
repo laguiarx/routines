@@ -39,6 +39,38 @@
       "status": "malicious-flagged",
       "first_seen": "2026-11-05",
       "last_reported": "2026-11-05"
+    },
+    {
+      "id": "GHSA-xqc2-xf4c-x3h3",
+      "package": "react-server-dom-* (RSC)",
+      "cvss": null,
+      "status": "patched",
+      "first_seen": "2026-11-11",
+      "last_reported": "2026-11-11"
+    },
+    {
+      "id": "GHSA-pcrw-h46h-c93h",
+      "package": "mongoose",
+      "cvss": 9.8,
+      "status": "patched",
+      "first_seen": "2026-11-11",
+      "last_reported": "2026-11-11"
+    },
+    {
+      "id": "RUSTSEC-2026-0482",
+      "package": "cap-primitives (crates.io)",
+      "cvss": 9.0,
+      "status": "patched",
+      "first_seen": "2026-11-11",
+      "last_reported": "2026-11-11"
+    },
+    {
+      "id": "GHSA-xggf-m53x-jc3f",
+      "package": "node-opcua",
+      "cvss": 9.1,
+      "status": "patched",
+      "first_seen": "2026-11-11",
+      "last_reported": "2026-11-11"
     }
   ],
   "ai": [
@@ -91,6 +123,11 @@
       "id": "anthropic/claude-fable-5.2-mythos-5.2",
       "type": "modelo novo",
       "first_seen": "2026-11-10"
+    },
+    {
+      "id": "google/gemini-4-carbon",
+      "type": "modelo novo",
+      "first_seen": "2026-11-11"
     }
   ]
 }
