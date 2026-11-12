@@ -71,6 +71,14 @@
       "status": "patched",
       "first_seen": "2026-11-11",
       "last_reported": "2026-11-11"
+    },
+    {
+      "id": "GHSA-8vv3-6qpc-gpw6",
+      "package": "bitcoinjs-lib",
+      "cvss": null,
+      "status": "patched",
+      "first_seen": "2026-11-12",
+      "last_reported": "2026-11-12"
     }
   ],
   "ai": [
@@ -128,6 +136,11 @@
       "id": "google/gemini-4-carbon",
       "type": "modelo novo",
       "first_seen": "2026-11-11"
+    },
+    {
+      "id": "google/gemini-decision-1",
+      "type": "recurso novo de API",
+      "first_seen": "2026-11-12"
     }
   ]
 }
