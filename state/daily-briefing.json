@@ -87,6 +87,14 @@
       "status": "malicious-flagged",
       "first_seen": "2026-11-16",
       "last_reported": "2026-11-16"
+    },
+    {
+      "id": "malicious:vant@4.9.11",
+      "package": "vant (npm)",
+      "cvss": null,
+      "status": "malicious-flagged",
+      "first_seen": "2026-11-18",
+      "last_reported": "2026-11-18"
     }
   ],
   "ai": [
@@ -154,6 +162,16 @@
       "id": "google/gemini-4-hydrogen",
       "type": "modelo novo",
       "first_seen": "2026-11-13"
+    },
+    {
+      "id": "openai/gpt-6.2-astra-sol",
+      "type": "modelo novo",
+      "first_seen": "2026-11-18"
+    },
+    {
+      "id": "openai/responses-background-window",
+      "type": "recurso novo de API",
+      "first_seen": "2026-11-18"
     }
   ]
 }
