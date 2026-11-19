@@ -95,6 +95,14 @@
       "status": "malicious-flagged",
       "first_seen": "2026-11-18",
       "last_reported": "2026-11-18"
+    },
+    {
+      "id": "GHSA-pfwx-xjp4-qxcj",
+      "package": "atomic-server (crates.io)",
+      "cvss": 9.8,
+      "status": "unpatched",
+      "first_seen": "2026-11-19",
+      "last_reported": "2026-11-19"
     }
   ],
   "ai": [
@@ -172,6 +180,11 @@
       "id": "openai/responses-background-window",
       "type": "recurso novo de API",
       "first_seen": "2026-11-18"
+    },
+    {
+      "id": "google/gemini-4-neon",
+      "type": "modelo novo",
+      "first_seen": "2026-11-19"
     }
   ]
 }
