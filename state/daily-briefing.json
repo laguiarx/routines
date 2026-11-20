@@ -103,6 +103,22 @@
       "status": "unpatched",
       "first_seen": "2026-11-19",
       "last_reported": "2026-11-19"
+    },
+    {
+      "id": "GHSA-mc8w-wjhw-45x5",
+      "package": "ep_etherpad-lite (npm)",
+      "cvss": 9.8,
+      "status": "patched",
+      "first_seen": "2026-11-20",
+      "last_reported": "2026-11-20"
+    },
+    {
+      "id": "GHSA-833v-v58w-294h",
+      "package": "@doist/todoist-mcp (npm)",
+      "cvss": 9.3,
+      "status": "patched",
+      "first_seen": "2026-11-20",
+      "last_reported": "2026-11-20"
     }
   ],
   "ai": [
@@ -185,6 +201,26 @@
       "id": "google/gemini-4-neon",
       "type": "modelo novo",
       "first_seen": "2026-11-19"
+    },
+    {
+      "id": "google/genie-4",
+      "type": "modelo novo",
+      "first_seen": "2026-11-20"
+    },
+    {
+      "id": "google/gemini-tool-retrieval",
+      "type": "recurso novo de API",
+      "first_seen": "2026-11-20"
+    },
+    {
+      "id": "openai/gpt-live-1.1",
+      "type": "modelo novo",
+      "first_seen": "2026-11-20"
+    },
+    {
+      "id": "alibaba/qwen4-max",
+      "type": "modelo novo",
+      "first_seen": "2026-11-20"
     }
   ]
 }
