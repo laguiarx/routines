@@ -119,6 +119,14 @@
       "status": "patched",
       "first_seen": "2026-11-20",
       "last_reported": "2026-11-20"
+    },
+    {
+      "id": "GHSA-2r3w-c2vx-fv5g",
+      "package": "xo-server (npm, Xen Orchestra)",
+      "cvss": 9.8,
+      "status": "unpatched",
+      "first_seen": "2026-11-24",
+      "last_reported": "2026-11-24"
     }
   ],
   "ai": [
