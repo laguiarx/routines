@@ -127,6 +127,14 @@
       "status": "unpatched",
       "first_seen": "2026-11-24",
       "last_reported": "2026-11-24"
+    },
+    {
+      "id": "GHSA-c4hm-4h84-2cf3",
+      "package": "ruflo (npm)",
+      "cvss": 10.0,
+      "status": "patched",
+      "first_seen": "2026-11-25",
+      "last_reported": "2026-11-25"
     }
   ],
   "ai": [
@@ -229,6 +237,16 @@
       "id": "alibaba/qwen4-max",
       "type": "modelo novo",
       "first_seen": "2026-11-20"
+    },
+    {
+      "id": "openai/chat-latest-update",
+      "type": "recurso novo de API",
+      "first_seen": "2026-11-25"
+    },
+    {
+      "id": "openai/healthcare-model-configs",
+      "type": "recurso novo de API",
+      "first_seen": "2026-11-25"
     }
   ]
 }
