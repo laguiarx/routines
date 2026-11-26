@@ -135,6 +135,14 @@
       "status": "patched",
       "first_seen": "2026-11-25",
       "last_reported": "2026-11-25"
+    },
+    {
+      "id": "GHSA-crj3-q72p-ggqm",
+      "package": "@waline/client (npm)",
+      "cvss": 9.3,
+      "status": "unpatched",
+      "first_seen": "2026-11-26",
+      "last_reported": "2026-11-26"
     }
   ],
   "ai": [
